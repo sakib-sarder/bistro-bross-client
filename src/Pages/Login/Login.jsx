@@ -8,7 +8,8 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
-// import Swal from "sweetalert2/dist/sweetalert2.js";
+import authImg from "../../assets/others/authentication2.png";
+import "./Login.css";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -59,18 +60,14 @@ const Login = () => {
       <Helmet>
         <title>Bistro Boss | Login</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="login-bg hero min-h-screen">
         <div className="hero-content flex-col md:flex-row">
           <div className="text-center md:w-1/2">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+            <img src={authImg} alt="" />
           </div>
-          <div className="card w-full md:w-1/2 shadow-2xl bg-base-100">
-            <form onSubmit={handleLogin} className="card-body">
+          <div className=" w-full md:w-1/2 ">
+            <h1 className="text-center text-4xl font-bold">Login</h1>
+            <form onSubmit={handleLogin} className="mt-2">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -99,9 +96,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control">
-                <label className="label">
-                  <LoadCanvasTemplate />
-                </label>
+                <LoadCanvasTemplate />
                 <input
                   onBlur={handleValidateCaptcha}
                   type="text"
@@ -114,12 +109,12 @@ const Login = () => {
                 <input
                   type="submit"
                   value="Login"
-                  className="btn btn-primary"
+                  className="btn bg-[#D1A054] border-0"
                   disabled={disabled}
                 />
               </div>
             </form>
-            <p className="text-xs text-center mb-3">
+            <p className="text-xs text-center my-3">
               New Here{" "}
               <Link to="/register" className="underline hover:text-blue-500">
                 Create an Account
