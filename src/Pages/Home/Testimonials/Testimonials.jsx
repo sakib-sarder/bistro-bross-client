@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import { FaQuoteRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "@smastrom/react-rating/style.css";
@@ -29,7 +30,12 @@ const Testimonials = () => {
         {reviews.map((review) => (
           <SwiperSlide key={review._id}>
             <div className="flex flex-col items-center my-16 mx-24 text-center space-y-4">
-              <Rating value={review.rating} style={{maxWidth: 100}} readOnly/>
+              <FaQuoteRight  className="text-6xl"/>
+              <Rating
+                value={review.rating}
+                style={{ maxWidth: 100 }}
+                readOnly
+              />
               <p>{review.details}</p>
               <h3 className="text-3xl text-orange-400">{review.name}</h3>
             </div>

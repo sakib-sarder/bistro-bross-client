@@ -11,7 +11,7 @@ const ChefRecommends = () => {
   }, []);
 
   const chefRecommends = items.slice(0, 4);
-  console.log(chefRecommends);
+
   return (
     <section className="my-20">
       <SectionTitle heading={"chef recommends"} subHeading={"Should Try"} />
