@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
-import "./Category.css";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -41,7 +40,7 @@ const Category = () => {
           },
         }}
         modules={[Pagination, Autoplay]}
-        className="mySwiper my-12"
+        className="mySwiper my-8"
       >
         <SwiperSlide className=" pb-16">
           <img src={slide1} className="w-full" alt="Food Image" />

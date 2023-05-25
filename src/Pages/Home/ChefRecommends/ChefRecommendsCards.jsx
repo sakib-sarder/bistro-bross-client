@@ -7,7 +7,7 @@ const ChefRecommendsCards = ({ items }) => {
         <h2 className="text-center text-lg font-semibold">{name}</h2>
         <p className="text-center text-sm">{recipe}</p>
         <div className="text-center pb-2">
-          <button className=" px-3 py-2 bg-[#E8E8E8] rounded-lg border-0 border-b-4 border-[#D5B363] hover:bg-[#1F2937] text-[#D5B363] text-lg font-semibold">
+          <button className="bistro-btn">
             Add to Cart
           </button>
         </div>
