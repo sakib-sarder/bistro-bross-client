@@ -105,6 +105,7 @@ const Login = () => {
                   className="input input-bordered"
                 />
               </div>
+              {/* todo: make btn disable for chaptcha */}
               <div className="form-control mt-6">
                 <input
                   type="submit"

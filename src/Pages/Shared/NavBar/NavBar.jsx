@@ -1,9 +1,12 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../../Hooks/useCart";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
 
   const handleLogout = () => {
     logOut()
@@ -13,16 +16,24 @@ const NavBar = () => {
   const navOptions = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/menu">Our Menu</Link>
+        <NavLink to="/menu">Our Menu</NavLink>
       </li>
       <li>
-        <Link to="/order/salad">Order Food</Link>
+        <NavLink to="/order/salad">Order Food</NavLink>
       </li>
       <li>
-        <Link to="/secret">Secret</Link>
+        <NavLink to="/secret">Secret</NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard">
+          <div className="flex gap-1">
+            <FaShoppingCart />
+            <sup className="text-rose-200">{cart?.length || 0}</sup>
+          </div>
+        </NavLink>
       </li>
       {user ? (
         <li>
@@ -32,14 +43,14 @@ const NavBar = () => {
         </li>
       ) : (
         <li>
-          <Link to="login">Login</Link>
+          <NavLink to="login">Login</NavLink>
         </li>
       )}
     </>
   );
   return (
     <>
-      <div className="navbar fixed z-10 bg-opacity-50 bg-black text-white max-w-screen-xl">
+      <div className="navbar fixed z-10 bg-opacity-70 bg-black text-white max-w-screen-xl">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -65,9 +76,9 @@ const NavBar = () => {
               {navOptions}
             </ul>
           </div>
-          <Link to="/" className="normal-case text-xl">
+          <NavLink to="/" className="normal-case text-xl">
             Bistro Boss
-          </Link>
+          </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>

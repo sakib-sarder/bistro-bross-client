@@ -7,6 +7,11 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import Secret from "../Pages/Shared/SEcret/Secret";
+import DashBoard from "../Layout/DashBoard";
+import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import Reservation from "../Pages/Dashboard/Reservation/Reservation";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +45,28 @@ const router = createBrowserRouter([
             <Secret></Secret>
           </PrivateRoute>
         ),
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <DashBoard />,
+    children: [
+      {
+        path: "mycart",
+        element: <MyCart />,
+      },
+      {
+        path: "userhome",
+        element: <UserHome />,
+      },
+      {
+        path: "reservations",
+        element: <Reservation />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
     ],
   },
