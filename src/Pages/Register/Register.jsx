@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import regImg from "../../assets/others/authentication2.png";
 import Swal from "sweetalert2";
 import "./Register.css";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -19,21 +20,30 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password).then((result) => {
       console.log(result.user);
       updateUserProfile(data.name, data.photoUrl)
         .then(() => {
-          console.log("user profile updated");
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User Created Successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
+          const saveUser = { name: data.name, email: data.email };
+          fetch(`http://localhost:5000/users`, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User Created Successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
         })
         .catch((error) => console.log(error));
     });
@@ -146,6 +156,7 @@ const Register = () => {
                 Login
               </Link>
             </p>
+            <SocialLogin />
           </div>
         </div>
       </div>

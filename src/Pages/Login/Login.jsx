@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import authImg from "../../assets/others/authentication2.png";
 import "./Login.css";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -121,6 +122,7 @@ const Login = () => {
                 Create an Account
               </Link>
             </p>
+            <SocialLogin />
           </div>
         </div>
       </div>

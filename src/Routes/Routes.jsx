@@ -12,6 +12,7 @@ import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import Reservation from "../Pages/Dashboard/Reservation/Reservation";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,11 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashBoard />,
+    element: (
+      <PrivateRoute>
+        <DashBoard />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "mycart",
@@ -67,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "allusers",
+        element: <AllUsers />,
       },
     ],
   },
