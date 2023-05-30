@@ -8,7 +8,7 @@ const useCart = () => {
   // const token = localStorage.getItem("access-token");
   const {refetch, data: cart = [] } = useQuery({
     queryKey: ["carts", user?.email],
-    enabled: !loading,
+    enabled: !loading && !!localStorage.getItem("access-token"),
     // queryFn: async () => {
     //   const response = await fetch(
     //     `http://localhost:5000/carts?email=${user?.email}`,
