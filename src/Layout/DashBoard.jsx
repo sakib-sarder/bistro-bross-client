@@ -19,7 +19,7 @@ const DashBoard = () => {
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle " />
-      <div className="drawer-content flex flex-col items-center justify-center ">
+      <div className="drawer-content">
         <Outlet />
         <label
           htmlFor="my-drawer-2"
@@ -46,20 +46,17 @@ const DashBoard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/mycart"
+                  to="/dashboard/addItem"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-white" : ""
                   }
                 >
-                  <FaUtensilSpoon /> Add Items{" "}
-                  <sup className="font-bold badge badge-success">
-                    {cart.length || 0}
-                  </sup>
+                  <FaUtensilSpoon /> Add an Items
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="/dashboard/payment"
+                  to="/dashboard/manageItems"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-white" : ""
                   }
@@ -86,7 +83,7 @@ const DashBoard = () => {
                     isPending ? "pending" : isActive ? "text-white" : ""
                   }
                 >
-                  <FaUsers/>
+                  <FaUsers />
                   Manage Users
                 </NavLink>
               </li>

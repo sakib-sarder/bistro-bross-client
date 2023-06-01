@@ -33,3 +33,6 @@ const useCart = () => {
 };
 
 export default useCart;
+
+
+//https://internshala.com/internship/detail/web-development-work-from-home-job-internship-at-skiaverse-private-limited1685525092
