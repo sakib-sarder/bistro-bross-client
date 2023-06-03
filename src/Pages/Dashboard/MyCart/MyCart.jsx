@@ -2,6 +2,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import useCart from "../../../Hooks/useCart";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
@@ -39,7 +40,9 @@ const MyCart = () => {
           <p>
             Total Price : ${cart.reduce((sum, item) => sum + item.price, 0)}
           </p>
-          <button className="btn btn-warning btn-sm">Pay Now</button>
+          <Link to="/dashboard/payment">
+            <button className="btn btn-warning btn-sm">Pay Now</button>
+          </Link>
         </div>
         <div className="overflow-x-auto w-full ">
           <table className="table  text-center w-full">
